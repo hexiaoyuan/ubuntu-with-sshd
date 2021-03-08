@@ -87,6 +87,10 @@ USER ubuntu
 RUN ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
 COPY --chown=ubuntu:ubuntu "./authorized_keys" /home/ubuntu/.ssh/authorized_keys
 #
+# 用户修改auto.sh可以自定义启动内容
+COPY --chown=ubuntu:ubuntu auto.sh /home/ubuntu/.local/auto.sh
+RUN chmod +x /home/ubuntu/.local/auto.sh
+#
 #
 # Install oh-my-zsh
 #RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

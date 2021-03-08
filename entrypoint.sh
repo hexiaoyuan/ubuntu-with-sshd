@@ -27,7 +27,7 @@ echo "[+] done"
 # 普通用户自定义启动运行脚本
 echo "[+] ~/.local/auto.sh ..."
 if [[ -x /home/ubuntu/.local/auto.sh ]]; then
-    home/ubuntu/.local/auto.sh
+    /home/ubuntu/.local/auto.sh
 fi
 echo "[+] done"
 

@@ -13,9 +13,8 @@ NOTE: 开发工具因为每个项目需求各异，就不整合了.
 
 ```shell
 docker build -f Dockerfile -t hexiaoyuan/ubunut-with-sshd:latest .
-docker push hexiaoyuan/ubunut-with-sshd
 docker tag hexiaoyuan/ubunut-with-sshd:latest hexiaoyuan/ubunut-with-sshd:v20200308
-docker push hexiaoyuan/ubunut-with-sshd:v20200308
+docker push hexiaoyuan/ubunut-with-sshd -a
 ```
 
 ## 本地开启一个容器实例
