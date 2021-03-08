@@ -3,6 +3,7 @@
 基于 ubuntu:20.04 加上 sshd 和一些常用的开发工具，建议搭配
 使用 vscode 装 ms-vscode-remote.remote-ssh 插件一起用.
 通常可以一个项目一个容器实例，开发环境独立互不干扰.
+
 NOTE: 开发工具因为每个项目需求各异，就不整合了.
 
 + 用户密码 ubuntu/ubuntu
