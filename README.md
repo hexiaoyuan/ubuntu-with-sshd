@@ -6,7 +6,7 @@
 
 NOTE: 开发工具因为每个项目需求各异，就不整合了.
 
-+ 用户密码 ubuntu/ubuntu
++ 用户密码 ubuntu/Pa$$w0rd$
 + 时区默认用UTC，如果要修改请重配tzdata，语言编码用 en_US.UTF-8 要改请重配 locales 即可。
 
 ## 编译发布
