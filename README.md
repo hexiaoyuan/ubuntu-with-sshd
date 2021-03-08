@@ -13,7 +13,7 @@ NOTE: 开发工具因为每个项目需求各异，就不整合了.
 
 ```shell
 docker build -f Dockerfile -t hexiaoyuan/ubunut-with-sshd:latest .
-docker tag hexiaoyuan/ubunut-with-sshd:latest hexiaoyuan/ubunut-with-sshd:v20200308
+docker tag hexiaoyuan/ubunut-with-sshd:latest hexiaoyuan/ubunut-with-sshd:v20210309
 docker push hexiaoyuan/ubunut-with-sshd -a
 ```
 
@@ -66,16 +66,23 @@ ssh ubuntu@127.0.0.1 -p 60101 -t tmux -CC new -A -s main
 
 ```txt
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+#deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
+
+或者你希望使用自动镜像
+sed -i 's#http://mirrors.aliyun.com/ubuntu/#mirror://mirrors.ubuntu.com/mirrors.txt#' /etc/apt/sources.list
+
+修改后更新试试
+sudo apt update && sudo apt dist-upgrade
+
 
 ## 使用 volume 来保存数据(建议)
 
@@ -85,7 +92,7 @@ docker volume inspect vol_home_mydev01
 
 docker run -d --init --privileged -p 60101:22 --name mydev01 --hostname mydev01 \
   --mount source=vol_home_mydev01,target=/home  \
-  --restart=always --memory="4g" --cpus=2 hexiaoyuan/ubunut-with-sshd:20200308
+  --restart=always --memory="4g" --cpus=2 hexiaoyuan/ubunut-with-sshd:v20210309
 
 docker exec -it mydev01 bash
 
