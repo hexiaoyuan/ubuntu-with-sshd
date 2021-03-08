@@ -66,21 +66,25 @@ ssh ubuntu@127.0.0.1 -p 60101 -t tmux -CC new -A -s main
 
 ```txt
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-#deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-#deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-#deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-#deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-#deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
 
-或者你希望使用自动镜像
+或者回复如初版本:
+
+```txt
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse
+```
+
+或者你希望使用自动镜像:
 sed -i 's#http://mirrors.aliyun.com/ubuntu/#mirror://mirrors.ubuntu.com/mirrors.txt#' /etc/apt/sources.list
 
-修改后更新试试
+修改后更新:
 sudo apt update && sudo apt dist-upgrade
 
 
