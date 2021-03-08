@@ -13,8 +13,9 @@ NOTE: 开发工具因为每个项目需求各异，就不整合了.
 
 ```shell
 docker build -f Dockerfile -t hexiaoyuan/ubunut-with-sshd:latest .
-docker tag hexiaoyuan/ubunut-with-sshd:latest hexiaoyuan/ubunut-with-sshd:20200308
 docker push hexiaoyuan/ubunut-with-sshd
+docker tag hexiaoyuan/ubunut-with-sshd:latest hexiaoyuan/ubunut-with-sshd:v20200308
+docker push hexiaoyuan/ubunut-with-sshd:v20200308
 ```
 
 ## 本地开启一个容器实例
@@ -41,9 +42,6 @@ $ vi /home/ubuntu/.ssh/authorized_keys
 
 ### 根据自己需求调整bash的配置
 $ vi ~/.bashrc
-
-### regen_ssh_host_keys, NOTE 会导致重启
-$ sudo dpkg-reconfigure openssh-server
 
 ### 退出
 $ exit
