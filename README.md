@@ -20,8 +20,8 @@ docker push hexiaoyuan/ubunut-with-sshd
 ## 本地开启一个容器实例
 
 ```shell
-docker push hexiaoyuan/ubunut-with-sshd
-docker run -d --init --privileged -p 60101:22 --name mydev01 hexiaoyuan/ubunut-with-sshd
+docker pull hexiaoyuan/ubunut-with-sshd
+docker run -d --init --privileged --restart=always -p 60101:22 --name mydev01 --hostname mydev01 hexiaoyuan/ubunut-with-sshd
 ```
 
 ## 进入
@@ -29,19 +29,23 @@ docker run -d --init --privileged -p 60101:22 --name mydev01 hexiaoyuan/ubunut-w
 ```shell
 docker exec -it mydev01 bash
 
-##进入后先把秘密改一下(ubuntu/ubuntu):
+### 进入后先把默认密码修改掉(ubuntu/Pa$$w0rd$):
 ubuntu@mydev01:~$:~$ passwd
 Changing password for ubuntu.
 Current password:
 New password:
 Retype new password:
 
-##把需要的key加入：
+### 把需要的key加入：
 $ vi /home/ubuntu/.ssh/authorized_keys
 
-##根据自己需求调整bash的配置
+### 根据自己需求调整bash的配置
 $ vi ~/.bashrc
 
+### regen_ssh_host_keys, NOTE 会导致重启
+$ sudo dpkg-reconfigure openssh-server
+
+### 退出
 $ exit
 
 ```
