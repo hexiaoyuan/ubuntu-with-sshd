@@ -36,7 +36,10 @@ Current password:
 New password:
 Retype new password:
 
-### 把需要的key加入：
+### 把预设的key更新一下:
+$ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+
+### 把自己登陆要用的的key加入：
 $ vi /home/ubuntu/.ssh/authorized_keys
 
 ### 根据自己需求调整bash的配置
